@@ -38,43 +38,9 @@
     </div>
 </section>
 <div class="map">
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49116.39176087041!2d-86.41867791216099!3d39.69977417971648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886ca48c841038a1%3A0x70cfba96bf847f0!2sPlainfield%2C%20IN%2C%20USA!5e0!3m2!1sen!2sbd!4v1586106673811!5m2!1sen!2sbd"
-        height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-    <div class="map-inside">
-        <i class="icon_pin"></i>
-        <div class="inside-widget">
-            <h4>Roti Gembul</h4>
-            <ul>
-                <li>Phone: 0812-3000-0990</li>
-                <li>Jl. Sungai Raya Dalam No.2 No. 41</li>
-            </ul>
-        </div>
-    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8144768128136!2d109.35266977571743!3d-0.07952913549926047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d5a17f9c588cf%3A0x3772cb1c6722fad9!2sRoti%20Gembul%20-%20Outlet%20Serdam!5e0!3m2!1sid!2sid!4v1686070164854!5m2!1sid!2sid"
+     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+   
 </div>
-<div class="contact-form spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="contact__form__title">
-                    <h2>Leave Message</h2>
-                </div>
-            </div>
-        </div>
-        <form action="#">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Your name">
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Your Email">
-                </div>
-                <div class="col-lg-12 text-center">
-                    <textarea placeholder="Your message"></textarea>
-                    <button type="submit" class="site-btn">SEND MESSAGE</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+
 @endsection

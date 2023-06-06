@@ -59,7 +59,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
-                    <a href="#" class="primary-btn cart-btn cart-btn-right">CONTINUE SHOPPING</a>
+                    <a href="/kontak" class="primary-btn cart-btn cart-btn-right">CONTINUE SHOPPING</a>
 
                 </div>
             </div>
@@ -71,7 +71,9 @@
                         
                         <li>Total <span>Rp.{{ $totalHarga }}</span></li>
                     </ul>
-                    <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+                    
+                    <a href="https://api.whatsapp.com/send?phone=6281350346834&text=Hai%20kak,%20saya%20order%20{{ $userproduk->data_produk->produk}}%20dengan%20jumlah%20{{$userproduk->jumlah}}%20dan%20total%20harga%20Rp.%20{{$totalHarga}}" class="primary-btn">PROCEED TO CHECKOUT</a>
+                    
                 </div>
             </div>
         </div>
