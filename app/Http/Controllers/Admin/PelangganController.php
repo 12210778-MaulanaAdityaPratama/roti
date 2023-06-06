@@ -3,15 +3,19 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\PelangganModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class PelangganController extends Controller
 {
     public function index()
     {
-        $data['pelanggan'] = PelangganModel::orderBy('id','desc')->paginate(5);
+        if (!Auth::user()->isAdmin()) {
+            return redirect('/user/dashboard');
+        }
+        $data['pelanggan'] = User::orderBy('id','desc')->paginate(5);
         return view('admin.pelanggan.pelanggan',$data)->with('title', 'Pelanggan');
     }
 
@@ -23,29 +27,30 @@ class PelangganController extends Controller
     public function store(Request $request)
     {
     $request->validate([
-    'nama' => 'required',
+    'name' => 'required',
     'email' => 'required',
-    'alamat' => 'required'
+    'password' => 'required'
     ]);
-    $pelanggan = new PelangganModel();
-    $pelanggan->no = $request->no;
-    $pelanggan->kode = $request->kode;
-    $pelanggan->nama = $request->nama;
+    $password = $request->input('password');
+    $hashedPassword = bcrypt($password);
+
+    $pelanggan = new User();
+    $pelanggan->name = $request->name;
     $pelanggan->email = $request->email;
-    $pelanggan->no_telp = $request->no_telp;
-    $pelanggan->alamat = $request->alamat;
-    $pelanggan->username = $request->username;
+    $pelanggan->password = $hashedPassword;
+    $pelanggan->status = $request->status;
+
     $pelanggan->save();
     return redirect()->route('admin.pelanggan')
     ->with('sukses','Data Pelanggan Tersimpan.');
     }
 
-    public function show(PelangganModel $pelanggan)
+    public function show(User $pelanggan)
     {
     return view('admin.pelanggan.show',compact('pelanggan'));
     } 
 
-    public function edit(PelangganModel $pelanggan)
+    public function edit(User $pelanggan)
     {
     return view('admin.pelanggan.edit',compact('pelanggan'));
     }
@@ -53,24 +58,23 @@ class PelangganController extends Controller
     public function update(Request $request, $id)
     {
     $request->validate([
-    'nama' => 'required',
-    'email' => 'required',
-    'alamat' => 'required',
+        'name' => 'required',
+        'email' => 'required',
+        'password' => 'required'
     ]);
-    $pelanggan = PelangganModel::find($id);
-    $pelanggan->no = $request->no;
-    $pelanggan->kode = $request->kode;
-    $pelanggan->nama = $request->nama;
+    $password = $request->input('password');
+    $hashedPassword = bcrypt($password);
+    $pelanggan = User::find($id);
+    $pelanggan->name = $request->name;
     $pelanggan->email = $request->email;
-    $pelanggan->no_telp = $request->no_telp;
-    $pelanggan->alamat = $request->alamat;
-    $pelanggan->username = $request->username;
+    $pelanggan->password = $hashedPassword;
+    $pelanggan->status = $request->status;
     $pelanggan->save();
     return redirect()->route('admin.pelanggan')
     ->with('sukses','Data Pelanggan Sudah Terupdate');
     }
 
-    public function destroy(PelangganModel $pelanggan)
+    public function destroy(User $pelanggan)
     {
     $pelanggan->delete();
     return redirect()->route('admin.pelanggan')

@@ -6,11 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProdukModel;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use App\Models\UserModel;
 
 class ProdukController extends Controller
 {
     public function index()
     {
+        if (!Auth::user()->isAdmin()) {
+            return redirect('/user/dashboard');
+        }
         $data['produk'] = ProdukModel::orderBy('id','desc')->get();
         return view('admin.produk.produk', $data)->with('title', 'produk');
     }

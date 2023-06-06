@@ -18,7 +18,7 @@
         aria-controls="pills-login" aria-selected="true">Login</a>
     </li>
     <li class="nav-item" role="presentation">
-      <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
+      <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="/registrasi" role="tab"
         aria-controls="pills-register" aria-selected="false">Register</a>
     </li>
   </ul>
@@ -33,8 +33,8 @@
   
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="text" id="username" name="username" class="form-control" />
-          <label class="form-label" for="username">Email or username</label>
+          <input type="text" id="name" name="name" class="form-control" />
+          <label class="form-label" for="name">Email or username</label>
         </div>
   
          {{-- Password input  --}}

@@ -29,76 +29,48 @@
                 </div>
             </div>
             <div class="row featured__filter">
+                @foreach ($produk as $produk)
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" style="background: url('{{ asset('images/roti/1.jpeg') }}') no-repeat; background-size: 100%;">
+                        <div class="featured__item__pic set-bg" style="background: url('{{ Storage::url(''.$produk->foto) }}') no-repeat; background-size: 100%;">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <form action="{{ route('tambah-produk') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="produk_id" value="{{ $produk->id }}">
+                                <li>
+                                    {{-- <i class="fa fa-shopping-cart"></i></a> --}}
+                                    <button class="fa fa-shopping-cart" type="submit"> Tambahkan ke Keranjang</button>
+                                </li>
                             </ul>
+                        </form>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#">Sweetbul chocomathine</a></h6>
-                            <h5>Rp.17.000</h5>
+                            <h6><a href="#">{{ $produk->produk }}</a></h6>
+                            <h5>Rp.{{ $produk->harga }}</h5>
                         </div>
+                        
                     </div>
                     
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" style="background: url('{{ asset('images/roti/2.jpeg') }}') no-repeat; background-size: 100%;">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Keju Susu</a></h6>
-                            <h5>Rp.17.000</h5>
-                        </div>
-                    </div>
                     
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" style="background: url('{{ asset('images/roti/3.jpeg') }}') no-repeat; background-size: 100%;">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Original</a></h6>
-                            <h5>Rp.10.000</h5>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" style="background: url('{{ asset('images/roti/4.jpeg') }}') no-repeat; background-size: 100%;">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Tiramisu</a></h6>
-                            <h5>Rp.16.000</h5>
-                        </div>
-                    </div>
-                    
-                </div>
+                
+                @endforeach
+                
+                
+               
+                
+                
                 
                
                
                
                 </div>
+               
+                
             </div>
+            
         </div>
+        
     </section>
+    
 @endsection

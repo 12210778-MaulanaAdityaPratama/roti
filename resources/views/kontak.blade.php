@@ -40,12 +40,17 @@
                         
                         <div class="product__item">
                            
-                            <div class="product__item__pic set-bg" style="background: url('{{ asset('images/roti/1.jpeg') }}') no-repeat; background-size: 100%;">
-                            {{-- data-setbg="img/product/product-1.jpg"> --}}
+                            <div class="product__item__pic set-bg" style="background: url('{{ Storage::url(''.$produk->foto) }}') no-repeat; background-size: 100%;">                            {{-- data-setbg="img/product/product-1.jpg"> --}}
                                 <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    <form action="{{ route('tambah-produk') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="produk_id" value="{{ $produk->id }}">
+                                    <li>
+                                        {{-- <i class="fa fa-shopping-cart"></i></a> --}}
+                                        <button class="fa fa-shopping-cart" type="submit"> Tambahkan ke Keranjang</button>
+                                    </li>
+                                </ul>
+                            </form>
                                 </ul>
                             </div>
                             <div class="product__item__text">
@@ -66,12 +71,7 @@
                     @endforeach
                 </div>
                
-                <div class="product__pagination">
-                    <a href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                </div>
+             
             </div>
         </div>
     </div>

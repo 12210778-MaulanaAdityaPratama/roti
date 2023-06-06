@@ -15,6 +15,7 @@
     <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/slicknav.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -53,9 +54,19 @@
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
                             
-                            <div class="header__top__right__auth">
-                                <a href="/login"><i class="fa fa-user"></i> Login</a>
-                            </div>
+                            @auth
+                <div class="header__top__right__auth">
+                    @if(Auth::user()->isAdmin())
+        <a href="/admin/profile"><i class="fa fa-user"></i> {{ Auth::user()->name }}</a>
+    @else
+        <a href="/user/dashboard"><i class="fa fa-user"></i> {{ Auth::user()->name }}</a>
+    @endif
+                </div>
+            @else
+                <div class="header__top__right__auth">
+                    <a href="/login"><i class="fa fa-user"></i> Login</a>
+                </div>
+            @endauth
                         </div>
                     </div>
                 </div>
@@ -82,10 +93,10 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="/detail"><i class="fa fa-shopping-cart"></i> <span>3</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>Rp.150.000</span></div>
+                        
+
                     </div>
                 </div>
             </div>
