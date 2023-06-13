@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\PemesananController;
 use App\Http\Controllers\admin\ProdukController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\DetailController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LoginController;
@@ -53,6 +54,10 @@ Route::resource('/user/pemesanan', UserPemesananController::class)->middleware('
 Route::get('/user/pemesanan', [UserPemesananController::class, 'index'])->name('user.pemesanan')->middleware('auth');
 Route::get('/registrasi', [RegistrasiController::class, 'index'])->name('registrasi');
 Route::post('/registrasi', [RegistrasiController::class, 'registrasi'])->name('registrasi.submit');
+Route::resource('/invoice', InvoiceController::class)->middleware('auth');
+Route::get('/invoice', [InvoiceController::class, 'index'])->name('invoice')->middleware('auth');
+
+
 
 
 

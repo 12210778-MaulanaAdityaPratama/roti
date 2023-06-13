@@ -72,7 +72,7 @@
                         <li>Total <span>Rp.{{ $totalHarga }}</span></li>
                     </ul>
                     
-                    <a href="https://api.whatsapp.com/send?phone=6281350346834&text=Hai%20kak,%20saya%20order%20{{ $userproduk->data_produk->produk}}%20dengan%20jumlah%20{{$userproduk->jumlah}}%20dan%20total%20harga%20Rp.%20{{$totalHarga}}" class="primary-btn">PROCEED TO CHECKOUT</a>
+                    <a href="/invoice" target="_blank" class="primary-btn">PROCEED TO CHECKOUT</a>
                     
                 </div>
             </div>

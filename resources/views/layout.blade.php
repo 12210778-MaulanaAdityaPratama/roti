@@ -76,7 +76,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html">
+                        <a href="/">
                             <img src="{{ asset('images/gembul.jpg') }}" alt=""
                         </a>
                     </div>
