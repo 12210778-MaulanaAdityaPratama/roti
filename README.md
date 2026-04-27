@@ -19,8 +19,6 @@
 
 ## 📸 Tampilan Website (Screenshots)
 
-> _Silakan tambahkan foto-foto screenshot website di bawah ini._
-
 ### Halaman Utama (Landing Page)
 
 ![Landing Page Screenshot](public/images/ss/home.png)
@@ -41,9 +39,8 @@
 
 - **Framework**: Laravel
 - **Database**: MySQL
-- **Frontend**: Blade Templates / Tailwind CSS / Bootstrap _(sesuaikan)_
-- **Lainnya**: _(tambahkan jika ada)_
-
+- **Frontend**: Blade Templates / Tailwind CSS / Bootstrap / Vite.js
+- 
 ## 🚀 Panduan Instalasi (Local Development)
 
 Ikuti langkah-langkah di bawah ini untuk menjalankan project di komputer lokal Anda:
