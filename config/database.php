@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => 'gembul',
+    'default' => env('DB_CONNECTION', 'mysql'),
     /*
     |--------------------------------------------------------------------------
     | Database Connections
